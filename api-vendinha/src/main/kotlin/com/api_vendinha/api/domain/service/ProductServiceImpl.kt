@@ -11,19 +11,20 @@ class ProductServiceImpl(
     private val productRepository: ProductRepository
 ):ProductServiceInterface {
     override fun save(productRequestDto: ProductRequestDto): ProductResponseDto{
-        val products = productRepository.save(
-            Products(
-                name = productRequestDto.name,
-                price = productRequestDto.price,
-                quantity = productRequestDto.quantity
-            )
-        )
-        return ProductResponseDto(
-            id = products.id,
-            name = products.name,
-            price = products.price,
-            quantity = products.quantity
-        )
+//        val products = productRepository.save(
+//            Products(
+//                name = productRequestDto.name,
+//                price = productRequestDto.price,
+//                quantity = productRequestDto.quantity
+//            )
+//        )
+//        return ProductResponseDto(
+//            id = products.id,
+//            name = products.name,
+//            price = products.price,
+//            quantity = products.quantity
+//        )
+        throw Exception("Function disable")
     }
     override fun findUser(id: Long): ProductResponseDto{
         val product = productRepository.findById(id).orElseThrow{
