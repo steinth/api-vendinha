@@ -6,6 +6,7 @@ import com.api_vendinha.api.domain.service.UserServiceInterface
 import org.springframework.web.bind.annotation.*
 
 // Marca a classe como um controlador REST do Spring, que irá lidar com requisições HTTP e retornar respostas diretamente no corpo da resposta.
+@CrossOrigin("*")
 @RestController
 // Define o caminho base para todos os endpoints dentro deste controlador. Neste caso, todos os endpoints começam com "/user".
 @RequestMapping("/user")

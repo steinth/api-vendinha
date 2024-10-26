@@ -11,16 +11,13 @@ data class Products (
     @Column(name = "id", unique = true)
     val id: Long? = null,
 
-    @Column(name = "nome")
-    var name: String,
-
-    @Column(name = "preco")
-    var price:Float,
-
-    @Column(name = "quantidade")
+    @Column(name = "quantity")
     var quantity: Int,
 
-    @JoinColumn(name = "user_id")
+    @Column(name = "price")
+    var price:Float,
+
     @ManyToOne
-    var user: User
+    @JoinColumn(name = "user_id")
+    var user: User? = null
 )

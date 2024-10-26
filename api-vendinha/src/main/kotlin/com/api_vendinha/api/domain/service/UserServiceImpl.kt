@@ -33,7 +33,6 @@ class UserServiceImpl (
 
         val products = userRequestDto.product.map{ dto ->
             Products(
-                name = dto.name,
                 price = dto.price,
                 quantity = dto.quantity,
                 user = user

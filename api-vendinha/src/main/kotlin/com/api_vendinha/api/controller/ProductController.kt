@@ -16,16 +16,16 @@ class ProductController (
         return productService.save(productRequestDto)
     }
 
-    @GetMapping("/{id}")
-    fun findUser(@PathVariable id: Long): ProductResponseDto{
-        return productService.findUser(id)
-    }
-
-    @PutMapping("{id}")
-    fun update(
-        @PathVariable id: Long,
-        @RequestBody productRequestDto: ProductRequestDto
-    ): ProductResponseDto{
-        return productService.update(id, productRequestDto)
-    }
+//    @GetMapping("/{id}")
+//    fun findUser(@PathVariable id: Long): ProductResponseDto{
+//        return productService.findUser(id)
+//    }
+//
+//    @PutMapping("{id}")
+//    fun update(
+//        @PathVariable id: Long,
+//        @RequestBody productRequestDto: ProductRequestDto
+//    ): ProductResponseDto{
+//        return productService.update(id, productRequestDto)
+//    }
 }

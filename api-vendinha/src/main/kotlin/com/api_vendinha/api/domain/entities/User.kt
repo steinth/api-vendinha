@@ -31,5 +31,5 @@ data class User (
     var is_active: Boolean,
 
     @OneToMany(mappedBy = "user")
-    var product: List<Products>? = null
+    var product: List<Products>? = arrayListOf()
 )
