@@ -8,7 +8,6 @@ import com.api_vendinha.api.infrastructure.repository.ProductRepository
 import com.api_vendinha.api.infrastructure.repository.UserRepository
 import org.springframework.stereotype.Service
 
-// Marca a classe como um componente de serviço do Spring, o que permite que o Spring a gerencie e a injete em outros componentes.
 @Service
 class UserServiceImpl (
     // Injeção de dependência do repositório de usuários. O repositório é usado para acessar e manipular dados no banco de dados.
@@ -16,8 +15,6 @@ class UserServiceImpl (
     private val productRepository: ProductRepository,
 ): UserServiceInterface {
 
-    // Implementa o metodo definido na interface UserServiceInterface.
-    // Recebe um UserRequestDto e retorna um UserResponseDto.
     override fun save(userRequestDto: UserRequestDto): UserResponseDto {
         // Cria uma nova instância da entidade User usando os dados do DTO.
         val user = userRepository.save(
@@ -41,7 +38,6 @@ class UserServiceImpl (
 
         productRepository.saveAll(products)
 
-        // Cria e retorna um UserResponseDto com o ID e nome do usuário salvo.
         return UserResponseDto(
             id = user.id,
             name = user.name,
@@ -50,6 +46,20 @@ class UserServiceImpl (
             cpf_cnpj = user.cpf_cnpj,
             is_active = user.is_active
         )
+    }
+
+    override fun listUsers(): List<UserResponseDto> {
+        val allUsers = userRepository.findAll()
+        return allUsers.map { user ->
+            UserResponseDto(
+                id = user.id,
+                name = user.name,
+                email = user.email,
+                cpf_cnpj = user.cpf_cnpj,
+                is_active = user.is_active,
+                password = user.password
+            )
+        }
     }
 
     override fun update(id:Long, userRequestDto: UserRequestDto): UserResponseDto{
