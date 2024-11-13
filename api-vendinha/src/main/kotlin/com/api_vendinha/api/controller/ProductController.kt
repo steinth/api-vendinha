@@ -16,16 +16,21 @@ class ProductController (
         return productService.save(productRequestDto)
     }
 
+    @PostMapping("list")
+    fun listAllProducts():List<ProductResponseDto>{
+        return productService.listAllProducts()
+    }
+
+    @PutMapping("{id}")
+    fun update(
+        @PathVariable id: Long,
+        @RequestBody productRequestDto: ProductRequestDto
+    ): ProductResponseDto{
+        return productService.update(id, productRequestDto)
+    }
+
 //    @GetMapping("/{id}")
 //    fun findUser(@PathVariable id: Long): ProductResponseDto{
 //        return productService.findUser(id)
-//    }
-//
-//    @PutMapping("{id}")
-//    fun update(
-//        @PathVariable id: Long,
-//        @RequestBody productRequestDto: ProductRequestDto
-//    ): ProductResponseDto{
-//        return productService.update(id, productRequestDto)
 //    }
 }

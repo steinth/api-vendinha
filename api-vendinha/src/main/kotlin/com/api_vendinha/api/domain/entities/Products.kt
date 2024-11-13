@@ -11,6 +11,9 @@ data class Products (
     @Column(name = "id", unique = true)
     val id: Long? = null,
 
+    @Column(name = "name")
+    var name:String,
+
     @Column(name = "quantity")
     var quantity: Int,
 
