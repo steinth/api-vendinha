@@ -72,12 +72,19 @@ class ProductServiceImpl(
     override fun listAllProducts():List<ProductResponseDto>{
         val allProducts = productRepository.findAll()
         return allProducts.map { product ->
+            val user = product.user ?: throw IllegalArgumentException("O usuário está faltando para o produto com ID: ${product.id}")
             ProductResponseDto(
                 id = product.id,
+                name = product.name,
                 price = product.price,
                 quantity = product.quantity,
                 user = UserResponseDto(
-
+                    id = user.id,
+                    name = user.name,
+                    email = user.email,
+                    password = user.password,
+                    cpf_cnpj = user.cpf_cnpj,
+                    is_active = user.is_active,
                 )
             )
         }

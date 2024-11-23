@@ -5,7 +5,7 @@ import com.api_vendinha.api.domain.dtos.response.ProductResponseDto
 import com.api_vendinha.api.domain.service.ProductServiceInterface
 import org.springframework.web.bind.annotation.*
 
-
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/product")
 class ProductController (
@@ -16,7 +16,7 @@ class ProductController (
         return productService.save(productRequestDto)
     }
 
-    @PostMapping("list")
+    @GetMapping("list")
     fun listAllProducts():List<ProductResponseDto>{
         return productService.listAllProducts()
     }
